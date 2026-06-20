@@ -9,7 +9,7 @@ monochrome mangowm rice. sharp edges, no rounded borders, tile and scroller layo
 ## install
 
 ```bash
-git clone --bare git@github.com:yozul6/dots.git ~/.dotfiles
+git clone --bare https://github.com/yozul6/dots.git ~/.dotfiles
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout --force
 ```
 
