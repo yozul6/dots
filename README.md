@@ -1,6 +1,6 @@
 # dots
 
-monochrome mangowm rice. sharp edges, zero borders, tile and scroller layouts.
+monochrome mangowm rice. sharp edges, no rounded borders, tile and scroller layouts.
 
 ## screenshot
 
