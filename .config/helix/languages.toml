@@ -1,0 +1,224 @@
+# ============================================================
+# Language server install instructions
+# Install the ones you need, skip the rest.
+# No distro-specific commands - use whatever package manager
+# your system provides (apk, pacman, xbps, etc.)
+# ============================================================
+#
+# --- Python ---
+#   basedpyright    : pip install basedpyright
+#   ruff            : pip install ruff
+#
+# --- TypeScript / JavaScript / JSX / TSX ---
+#   typescript-language-server : npm install -g typescript-language-server
+#   prettier                   : npm install -g prettier
+#
+# --- Lua ---
+#   lua-language-server : install lua-language-server
+#   stylua              : cargo install stylua
+#
+# --- Shell (bash, zsh) ---
+#   bash-language-server : npm install -g bash-language-server
+#   shfmt                : go install mvdan.cc/sh/v3/cmd/shfmt@latest
+#
+# --- Nix ---
+#   nil               : install nil
+#   nixd              : install nixd
+#   nixfmt            : install nixfmt
+#
+# --- C / C++ ---
+#   clangd : install clangd (comes with LLVM/Clang)
+#
+# --- Rust ---
+#   rust-analyzer : rustup component add rust-analyzer
+#
+# --- TOML ---
+#   taplo : cargo install taplo-cli --locked
+#
+# --- Go ---
+#   gopls : go install golang.org/x/tools/gopls@latest
+#
+# --- Fish ---
+#   fish-lsp     : install fish-lsp
+#   fish_indent  : included with fish shell
+#
+# --- Markdown ---
+#   marksman      : download from github.com/artempyanykh/marksman/releases
+#   markdown-oxide: cargo install --locked --git https://github.com/Feel-ix-343/markdown-oxide
+#   rumdl         : cargo install rumdl
+#
+# --- JSON / YAML / HTML / CSS ---
+#   vscode-json-language-server : npm install -g vscode-langservers-extracted
+#   yaml-language-server        : npm install -g yaml-language-server
+#   ansible-language-server     : npm install -g @ansible/ansible-language-server
+#
+# --- Docker ---
+#   docker-langserver : npm install -g dockerfile-language-server-nodejs
+#
+# --- CMake ---
+#   cmake-language-server : pip install cmake-language-server
+#
+# ============================================================
+
+[language-server.basedpyright]
+command = "basedpyright-langserver"
+args = ["--stdio"]
+
+[language-server.basedpyright.config.python.analysis]
+typeCheckingMode = "basic"
+autoImportCompletions = true
+
+[[language]]
+name = "python"
+file-types = ["py", "pyi", "py3", "pyw"]
+comment-token = "#"
+language-servers = ["basedpyright", "ruff"]
+formatter = { command = "ruff", args = ["format", "-"] }
+auto-format = true
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "typescript"
+file-types = ["ts", "mts", "cts"]
+comment-token = "//"
+language-servers = ["typescript-language-server"]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "javascript"
+file-types = ["js", "mjs", "cjs"]
+comment-token = "//"
+language-servers = ["typescript-language-server"]
+formatter = { command = "prettier", args = ["--parser", "babel"] }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "tsx"
+file-types = ["tsx"]
+comment-token = "//"
+language-servers = ["typescript-language-server"]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "jsx"
+file-types = ["jsx"]
+comment-token = "//"
+grammar = "javascript"
+language-servers = ["typescript-language-server"]
+formatter = { command = "prettier", args = ["--parser", "babel"] }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "lua"
+file-types = ["lua", "rockspec"]
+comment-token = "--"
+block-comment-tokens = { start = "--[[", end = "]]" }
+language-servers = ["lua-language-server"]
+formatter = { command = "stylua", args = ["-"] }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "bash"
+file-types = ["sh", "bash", "zsh"]
+comment-token = "#"
+language-servers = ["bash-language-server"]
+formatter = { command = "shfmt", args = ["-i", "2", "-ci", "-bn"] }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "nix"
+file-types = ["nix"]
+comment-token = "#"
+language-servers = ["nil", "nixd"]
+formatter = { command = "nixfmt", args = ["-"] }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "c"
+file-types = ["c"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = ["clangd"]
+# stdin mode, no -i flag (that breaks piping)
+formatter = { command = "clang-format" }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "cpp"
+file-types = ["cc", "hh", "c++", "cpp", "hpp", "h", "ipp", "tpp", "cxx", "hxx", "ixx", "txx", "ino", "C", "H", "cu", "cuh", "cppm", "h++", "ii", "inl"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = ["clangd"]
+# stdin mode, no -i flag (that breaks piping)
+formatter = { command = "clang-format" }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+# --- Added languages ---
+
+[[language]]
+name = "rust"
+file-types = ["rs"]
+comment-tokens = ["//", "///", "//!"]
+block-comment-tokens = [
+	{ start = "/*", end = "*/" },
+	{ start = "/**", end = "*/" },
+	{ start = "/*!", end = "*/" },
+]
+language-servers = ["rust-analyzer"]
+auto-format = true
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "toml"
+file-types = ["toml"]
+comment-token = "#"
+language-servers = ["taplo", "tombi"]
+formatter = { command = "taplo", args = ["fmt", "-"] }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "go"
+file-types = ["go"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = ["gopls", "golangci-lint-lsp"]
+auto-format = true
+indent = { tab-width = 4, unit = "\t" }
+
+[[language]]
+name = "fish"
+file-types = ["fish"]
+comment-token = "#"
+block-comment-tokens = { start = "#{", end = "#}" }
+language-servers = ["fish-lsp"]
+formatter = { command = "fish_indent" }
+auto-format = true
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "markdown"
+file-types = ["md", "markdown", "mdx", "mkd", "mkdn"]
+block-comment-tokens = { start = "<!--", end = "-->" }
+language-servers = ["marksman", "markdown-oxide", "rumdl"]
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "yaml"
+file-types = ["yml", "yaml"]
+comment-token = "#"
+language-servers = ["yaml-language-server", "ansible-language-server"]
+formatter = { command = "yamlfmt", args = ["-"] }
+auto-format = true
+indent = { tab-width = 2, unit = "  " }

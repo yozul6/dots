@@ -1,0 +1,7 @@
+# Solyn Theme for Helix
+# A subtle transparent theme inheriting from base16_transparent.
+# Place at: ~/.config/helix/themes/solyn.toml
+
+inherits = "base16_transparent"
+
+"keyword.directive" = { modifiers = ["italic"] }

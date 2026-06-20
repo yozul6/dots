@@ -1,0 +1,31 @@
+# name: 'veiid'
+# preferred_background: 0c0e16
+
+[dark]
+fish_color_normal d8dce8
+fish_color_command 6a7a9a
+fish_color_param 8c8e96
+fish_color_redirection 5c5e66
+fish_color_comment 4c4e56
+fish_color_error 2c2e36
+fish_color_escape 6a7a9a
+fish_color_operator 5c5e66
+fish_color_end 5c5e66
+fish_color_quote 7c7e86
+fish_color_autosuggestion 4c4e56
+fish_color_valid_path --underline 6a7a9a
+fish_color_cwd 6a7a9a
+fish_color_cwd_root 5a6a8a
+fish_color_user 8c8e96
+fish_color_host 7c7e86
+fish_color_host_remote 6a7a9a
+fish_color_status 2c2e36
+fish_color_cancel 2c2e36
+fish_color_search_match --background=3c3e46
+fish_color_selection --background=3c3e46
+fish_color_history_current 8c8e96
+fish_pager_color_prefix 6a7a9a
+fish_pager_color_completion 8c8e96
+fish_pager_color_description 4c4e56
+fish_pager_color_progress 6a7a9a
+fish_pager_color_secondary 3c3e46

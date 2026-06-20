@@ -1,0 +1,56 @@
+# install imv
+
+# -- Manager ------------------------------------------------
+[mgr]
+ratio = [1, 4, 3]
+sort_by = "alphabetical"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+sort_translit = false
+show_hidden = false
+show_symlink = true
+scrolloff = 5
+mouse_events = ["click", "scroll", "drag"]
+
+# -- Preview (text only, no images) -------------------------
+[preview]
+wrap = "no"
+tab_size = 2
+max_width = 600
+max_height = 900
+
+# -- Openers (what Enter does) ------------------------------
+[opener]
+edit = [
+	{ run = 'helix "$@"', block = true, desc = "helix" }
+]
+
+image = [
+	{ run = 'imv "$@"', orphan = true, desc = "nsxiv" }
+]
+
+video = [
+	{ run = 'mpv "$@"', orphan = true, desc = "mpv" }
+]
+
+audio = [
+	{ run = 'mpv "$@"', orphan = true, desc = "mpv" }
+]
+
+pdf = [
+	{ run = 'zathura "$@"', orphan = true, desc = "zathura" }
+]
+
+# -- Open rules ---------------------------------------------
+[open]
+rules = [
+	{ mime = "image/*", use = "image" },
+	{ mime = "video/*", use = "video" },
+	{ mime = "audio/*", use = "audio" },
+	{ mime = "application/pdf", use = "pdf" },
+	{ mime = "text/*", use = "edit" },
+	{ mime = "application/json", use = "edit" },
+	{ mime = "application/javascript", use = "edit" },
+	{ mime = "application/xml", use = "edit" },
+]

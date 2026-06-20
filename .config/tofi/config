@@ -1,0 +1,41 @@
+# Tofi config — monochrome, minimal, sharp
+# Colors match mango/waybar rice exactly
+
+anchor = center
+width = 500
+height = 300
+
+font = JetBrainsMono Nerd Font
+font-size = 13
+
+background-color = #000000
+border-color = #333333
+border-width = 2
+border-radius = 0
+
+text-color = #bbbbbb
+selection-color = #ffffff
+selection-background = #333333
+selection-background-padding = 0,8
+selection-background-corner-radius = 0
+
+prompt-text = ""
+prompt-color = #ffffff
+prompt-background = #000000
+
+result-spacing = 4
+padding-left = 8
+padding-right = 8
+padding-top = 8
+padding-bottom = 8
+
+outline-width = 0
+corner-radius = 0
+
+fuzzy-match = true
+drun-launch = true
+hide-input = false
+hide-cursor = true
+auto-accept-single = false
+require-match = true
+ascii-input = false

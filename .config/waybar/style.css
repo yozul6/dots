@@ -1,0 +1,84 @@
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+window#waybar {
+  background-color: #000000;
+  border: 2px solid #333333;
+  color: #bbbbbb;
+}
+
+/* --- Tags --- */
+#tags {
+  padding-left: 8px;
+}
+
+#tags button {
+  color: #333333;
+  padding: 0 8px;
+}
+
+#tags button.focused {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+#tags button.occupied {
+  color: #999999;
+}
+
+#tags button:hover {
+  background: transparent;
+  color: #bbbbbb;
+}
+
+/* --- Window --- */
+#window {
+  color: #999999;
+  padding: 0 12px;
+}
+
+#window.empty {
+  color: #333333;
+}
+
+/* --- Right modules --- */
+#network,
+#bluetooth,
+#custom-volume,
+#tray {
+  color: #bbbbbb;
+  padding: 0 8px;
+}
+
+#network.disconnected {
+  color: #666666;
+}
+
+#custom-volume.muted {
+  color: #666666;
+}
+
+#bluetooth.disabled {
+  color: #666666;
+}
+
+/* --- Tray --- */
+#tray {
+  padding-right: 8px;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+}

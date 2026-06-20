@@ -1,0 +1,64 @@
+{
+  "layer": "top",
+  "position": "top",
+  "width": 800,
+  "margin-top": 8,
+  "margin-bottom": 4,
+  "height": 32,
+  "spacing": 0,
+  "modules-left": [
+    "dwl/tags",
+    "dwl/window"
+  ],
+  "modules-right": [
+    "network",
+    "bluetooth",
+    "custom/volume",
+    "tray"
+  ],
+  "dwl/tags": {
+    "num-tags": 9,
+    "tag-labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "disable-click": true
+  },
+  "dwl/window": {
+    "format": "{app_id}",
+    "max-length": 30,
+    "tooltip": false
+  },
+  "network": {
+    "format-wifi": "󰤨 {essid}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "tooltip": false,
+    "interval": 5
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-connected": "󰂱 {device_alias}",
+    "format-disabled": "",
+    "tooltip": false,
+    "interval": 5
+  },
+  "custom/volume": {
+    "exec": "$HOME/.config/waybar/volume.sh",
+    "format": "󰕾 {}%",
+    "format-muted": "󰖁",
+    "interval": 1,
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  }
+}

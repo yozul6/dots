@@ -1,0 +1,204 @@
+# Monochrome theme for Yazi
+# No icons. No rounded corners. True monochrome.
+# Palette: #000000 #1a1a1a #333333 #666666 #999999 #bbbbbb #dddddd #ffffff
+
+# -- Flavor ---------------------------------------------------------------
+[flavor]
+dark = ""
+light = ""
+
+# -- App ------------------------------------------------------------------
+# No overall bg - let terminal transparency show through
+[app]
+overall = {}
+
+# -- Manager --------------------------------------------------------------
+[mgr]
+# Current working directory - bright white, bold
+cwd = { fg = "#ffffff", bold = true }
+
+# Find highlight - white on black reversed
+find_keyword = { fg = "#ffffff", bold = true, underline = true }
+find_position = { fg = "#bbbbbb", bold = true }
+
+# Symlinks - medium gray, italic
+symlink_target = { fg = "#999999", italic = true }
+
+# Markers - monochrome (bg blocks only, no colored fg)
+marker_copied = { fg = "#000000", bg = "#bbbbbb" }
+marker_cut = { fg = "#000000", bg = "#666666" }
+marker_marked = { fg = "#000000", bg = "#999999" }
+marker_selected = { fg = "#000000", bg = "#ffffff" }
+marker_symbol = "|"
+
+# Count badges - black bg with white fg
+count_copied = { fg = "#000000", bg = "#bbbbbb" }
+count_cut = { fg = "#000000", bg = "#666666" }
+count_selected = { fg = "#000000", bg = "#ffffff" }
+
+# Border - dark gray straight line
+border_symbol = "|"
+border_style = { fg = "#333333" }
+
+# -- Indicator (hovered file marker) --------------------------------------
+[indicator]
+parent = { reversed = true }
+current = { reversed = true }
+preview = { underline = true }
+padding = { open = " ", close = " " }
+
+# -- Tabs -----------------------------------------------------------------
+[tabs]
+active = { fg = "#ffffff", bg = "#000000", bold = true }
+inactive = { fg = "#999999", bg = "#1a1a1a" }
+sep_inner = { open = "[", close = "]" }
+sep_outer = { open = "[", close = "]" }
+
+# -- Mode -----------------------------------------------------------------
+[mode]
+normal_main = { fg = "#000000", bg = "#ffffff", bold = true }
+normal_alt = { fg = "#ffffff", bg = "#333333" }
+
+select_main = { fg = "#000000", bg = "#ffffff", bold = true }
+select_alt = { fg = "#ffffff", bg = "#333333" }
+
+unset_main = { fg = "#000000", bg = "#666666", bold = true }
+unset_alt = { fg = "#999999", bg = "#333333" }
+
+# -- Status bar -----------------------------------------------------------
+[status]
+overall = { fg = "#bbbbbb" }
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions - monochrome shades
+perm_sep = { fg = "#333333" }
+perm_type = { fg = "#ffffff" }
+perm_read = { fg = "#bbbbbb" }
+perm_write = { fg = "#999999" }
+perm_exec = { fg = "#666666" }
+
+# Progress bar
+progress_label = { fg = "#ffffff", bold = true }
+progress_normal = { fg = "#ffffff", bg = "#333333" }
+progress_error = { fg = "#ffffff", bg = "#000000" }
+
+# -- Which (key hint overlay) ---------------------------------------------
+[which]
+mask = { bg = "#000000" }
+cand = { fg = "#ffffff", bold = true }
+rest = { fg = "#666666" }
+desc = { fg = "#999999" }
+separator = " "
+separator_style = { fg = "#333333" }
+
+# -- Confirm dialog -------------------------------------------------------
+[confirm]
+border = { fg = "#333333" }
+title = { fg = "#ffffff", bold = true }
+body = { fg = "#bbbbbb" }
+list = { fg = "#999999" }
+btn_yes = { fg = "#000000", bg = "#ffffff", bold = true }
+btn_no = { fg = "#bbbbbb" }
+btn_labels = [ "[Y]", "(N)" ]
+
+# -- Spotter (file info popup) --------------------------------------------
+[spot]
+border = { fg = "#333333" }
+title = { fg = "#ffffff", bold = true }
+tbl_col = { fg = "#bbbbbb", bold = true }
+tbl_cell = { fg = "#999999", reversed = true }
+
+# -- Notifications --------------------------------------------------------
+[notify]
+title_info = { fg = "#ffffff", bold = true }
+title_warn = { fg = "#bbbbbb", bold = true }
+title_error = { fg = "#666666", bold = true }
+icon_info = ""
+icon_warn = ""
+icon_error = ""
+
+# -- Picker ---------------------------------------------------------------
+[pick]
+border = { fg = "#333333" }
+active = { fg = "#ffffff", bold = true }
+inactive = { fg = "#666666" }
+
+# -- Input ----------------------------------------------------------------
+[input]
+border = { fg = "#333333" }
+title = { fg = "#ffffff", bold = true }
+value = { fg = "#bbbbbb" }
+selected = { fg = "#000000", bg = "#ffffff" }
+
+# -- Completion -----------------------------------------------------------
+[cmp]
+border = { fg = "#333333" }
+active = { fg = "#ffffff", reversed = true }
+inactive = { fg = "#666666" }
+icon_file = ""
+icon_folder = ""
+icon_command = ""
+
+# -- Tasks ----------------------------------------------------------------
+[tasks]
+border = { fg = "#333333" }
+title = { fg = "#ffffff", bold = true }
+hovered = { fg = "#ffffff", bold = true }
+
+# -- Help menu ------------------------------------------------------------
+[help]
+on = { fg = "#ffffff", bold = true }
+run = { fg = "#bbbbbb" }
+desc = { fg = "#666666" }
+hovered = { reversed = true, bold = true }
+footer = { fg = "#333333", bg = "#000000" }
+
+# -- File type rules (monochrome) -----------------------------------------
+[filetype]
+rules = [
+	# Directories - white
+	{ url = "*/", fg = "#ffffff" },
+
+	# Symlinks
+	{ url = "*", is = "link", fg = "#999999" },
+	# Broken symlinks
+	{ url = "*", is = "orphan", fg = "#666666", bg = "#1a1a1a" },
+	# Executables
+	{ url = "*", is = "exec", fg = "#dddddd" },
+	# Hidden files
+	{ url = "*", is = "hidden", fg = "#666666" },
+	# Block/char devices
+	{ url = "*", is = "block", fg = "#999999" },
+	{ url = "*", is = "char", fg = "#999999" },
+	{ url = "*", is = "fifo", fg = "#999999" },
+	{ url = "*", is = "sock", fg = "#999999" },
+	# Sticky
+	{ url = "*", is = "sticky", fg = "#bbbbbb" },
+	# Dummy files
+	{ url = "*", is = "dummy", bg = "#1a1a1a" },
+
+	# Archives - light gray
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#bbbbbb" },
+	# Media - medium gray
+	{ mime = "{audio,video}/*", fg = "#999999" },
+	# Images - light gray
+	{ mime = "image/*", fg = "#bbbbbb" },
+	# Documents - medium-light gray
+	{ mime = "application/{pdf,doc,rtf}", fg = "#999999" },
+	# Text files - default light
+	{ mime = "text/*", fg = "#bbbbbb" },
+	# VFS
+	{ mime = "vfs/{absent,stale}", fg = "#333333" },
+
+	# Fallback for all other files
+	{ url = "*", fg = "#bbbbbb" },
+]
+
+# -- Icons (disabled - empty overrides) -----------------------------------
+[icon]
+globs = []
+dirs = []
+files = []
+exts = []
+conds = []
