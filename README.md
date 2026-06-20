@@ -4,7 +4,7 @@ monochrome mangowm rice. sharp edges, zero borders, tile and scroller layouts.
 
 ## screenshot
 
-*todo*
+![rice](.github/image.png)
 
 ## install
 
